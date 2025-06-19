@@ -4,6 +4,8 @@
 
 This app was very much a “vibe-coded” project. It was developed with help from ChatGPT, but all design decisions and refinements were made by me. I’m sharing the source code for anyone who wants to build the app, customize it, or simply explore how it works.
 
+I am not looking for feedback or comments on the coding style.  If you want, you can fork the branch and make your own enhancements and changes.
+
 > ⚠️ Note: macOS 26 introduces native folder customization that will overlap with some of Folder Flair’s features. However, this app still offers options that macOS does not, such as support for custom images, scaling, and rotation.
 
 > Keep in mind that if a Folder Flair icon is applied, macOS 26 disables the folder’s opening animation when dragging in content. Tagging support remains unchanged.
@@ -12,9 +14,7 @@ If you prefer not to build the app yourself, you can download the installer belo
 
 ## 🚀 Download Folder Flair Installer
 
-[![Download Folder Flair v1.0.0](https://img.shields.io/badge/Download%20-v1.0.0-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.0/Folder.Flair.Install.dmg)
-
-Folder Flair is a Mac app that let's you customize your Finder folder icons.
+[![Download Folder Flair v1.0.0](https://img.shields.io/badge/Download%20-v1.0.0-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.0/Folder.Flair.Install.dmg) 
 
 ## Features
 
