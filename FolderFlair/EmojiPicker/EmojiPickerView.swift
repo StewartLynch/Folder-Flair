@@ -31,6 +31,7 @@ struct EmojiPickerView: View {
              emoji.description.localizedCaseInsensitiveContains(searchText) ||
              emoji.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) }))
         }
+        
     }
     
     var categories: [String] {
