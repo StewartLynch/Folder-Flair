@@ -33,7 +33,7 @@ struct ContentView: View {
                 VStack {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(isTargeted ? Color.accentColor : Color.gray, style: StrokeStyle(lineWidth: 2, dash: [5]))
-                        .frame(height: 300)
+                        .frame(height: 350)
                         .overlay(
                             VStack {
                                 HStack(alignment: .top) {
@@ -43,7 +43,8 @@ struct ContentView: View {
                                     }
                                 }
                                 .font(.system(size: 18))
-                                let text = appState.iconType == .symbol ? "Drag a folder here or" : "Drag a folder or PNG image here"
+                                .padding(.top)
+                                let text = appState.iconType == .symbol || appState.iconType == .emoji ? "Drag a folder here or" : "Drag a folder or PNG image here"
                                 Text(text)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
@@ -82,7 +83,7 @@ struct ContentView: View {
                                             }
                                         }
                                     }
-
+                                    
                                     if appState.iconType == .image {
                                         Button("Choose a PNG Image") {
                                             let panel = NSOpenPanel()
@@ -104,27 +105,33 @@ struct ContentView: View {
                                         }
                                     }
                                 }
-
                                 Text(folderURL?.path(percentEncoded: false) ?? "")
                                     .font(.caption)
                                 FolderIconView(appState: appState)
+                                if let folderURL {
+                                    Text(folderURL.lastPathComponent)
+                                }
+                                Text(statusMessage)
+                                    .foregroundColor(.gray)
+                                    .font(.footnote)
+                                Spacer()
                             }
                         )
                         .onDrop(of: [.fileURL], isTargeted: $isTargeted) { providers in
                             handleDrop(providers: providers)
                         }
                 }
-
+                
                 .onChange(of: appState.refreshToken) {
                     updatePreview()
                 }
-
+                
                 HStack {
                     Button("Apply Custom View as Icon") {
                         applyCustomViewAsIcon()
                     }
                     .disabled(folderURL == nil || previewImage == nil)
-
+                    
                     Button("Remove Custom Icon") {
                         if let folderURL = folderURL {
                             _ = NSWorkspace.shared.setIcon(nil, forFile: folderURL.path, options: [])
@@ -134,10 +141,15 @@ struct ContentView: View {
                     }
                     .disabled(folderURL == nil)
                 }
-
-                Text(statusMessage)
-                    .foregroundColor(.gray)
-                    .font(.footnote)
+                
+                if folderURL != nil {
+                    Button {
+                        folderURL = nil
+                        appState.reset()
+                    } label: {
+                        Label("Reset", systemImage: "arrow.counterclockwise")
+                    }
+                }
                 Spacer()
             }
             .padding()
@@ -172,22 +184,37 @@ struct ContentView: View {
                     DispatchQueue.main.async {
                         if let data = item as? Data,
                            let url = URL(dataRepresentation: data, relativeTo: nil) {
-
                             var isDir: ObjCBool = false
                             FileManager.default.fileExists(atPath: url.path, isDirectory: &isDir)
-
-                            if isDir.boolValue {
-                                folderURL = url
-                            } else if appState.iconType == .image && url.pathExtension.lowercased() == "png" {
-                                if let image = NSImage(contentsOf: url) {
-                                    appState.iconType = .image
-                                    appState.iconImage = image
-                                    statusMessage = "✅ PNG image loaded."
+                            if appState.iconType == .image {
+                                // Check if we are trying to add a PNG Image
+                                if url.pathExtension.lowercased() == "png" {
+                                    if let image = NSImage(contentsOf: url) {
+                                        appState.iconType = .image
+                                        appState.iconImage = image
+                                        statusMessage = "✅ PNG image loaded."
+                                    } else {
+                                        statusMessage = "❌ Failed to load PNG image."
+                                    }
+                                    
                                 } else {
-                                    statusMessage = "❌ Failed to load PNG image."
+                                    // Check if we are adding a folder
+                                    if isDir.boolValue {
+                                        folderURL = url
+                                    } else {
+                                        statusMessage = "❌ This is not a PNG Image."
+
+                                    }
                                 }
                             } else {
-                                statusMessage = "❌ Not a valid folder or PNG image."
+                                // Must be on other tabs so just check to see if it is a folder
+                                if isDir.boolValue {
+                                    folderURL = url
+                                } else {
+                                    folderURL = nil
+                                    statusMessage = "❌ This is not a folder"
+                                    appState.reset()
+                                }
                             }
                         }
                     }

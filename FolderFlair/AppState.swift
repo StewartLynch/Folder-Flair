@@ -40,4 +40,17 @@ class AppState {
         let imageIdentifier = iconImage.map { "\($0.hash)" } ?? "nil"
         return "\(symbolName)-\(folderTint.description)-\(symbolColor.description)-\(symbolOffset.width)-\(symbolOffset.height)-\(hasShadow)-\(showIcon)-\(tintFolder)-\(iconType)-\(imageIdentifier)"
     }
+    
+    func reset() {
+        symbolName = "sparkles"
+        selectedEmoji = "😀"
+        folderTint = .red
+        symbolColor = .white
+        iconSize = 65
+        symbolRotation = 0
+        symbolOffset = CGSize(width: 0, height: 10)
+        hasShadow = true
+        showIcon = true
+        tintFolder = true
+    }
 }
