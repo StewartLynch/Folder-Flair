@@ -154,7 +154,7 @@ struct ContentView: View {
             }
             .padding()
             .frame(width: 500)
-            .navigationTitle("Folder Icon Setter")
+            .navigationTitle("Folder Flair")
         }
         .inspector(isPresented: $isPresented) {
             InspectorView(appState: $appState, previewImage: $previewImage)
