@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB1A46552DED68B900B7F845 /* SFSymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BB1A46542DED68B900B7F845 /* SFSymbolPicker */; };
+		BB226B052E08C236005C1504 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = BB226B042E08C236005C1504 /* EmojiPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1A46552DED68B900B7F845 /* SFSymbolPicker in Frameworks */,
+				BB226B052E08C236005C1504 /* EmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = FolderFlair;
 			packageProductDependencies = (
 				BB1A46542DED68B900B7F845 /* SFSymbolPicker */,
+				BB226B042E08C236005C1504 /* EmojiPicker */,
 			);
 			productName = FolderFlair;
 			productReference = BB1A46312DED5D3600B7F845 /* FolderFlair.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				BB1A46532DED68B900B7F845 /* XCRemoteSwiftPackageReference "SFSymbolPicker" */,
+				BB226B032E08C236005C1504 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BB1A46322DED5D3600B7F845 /* Products */;
@@ -346,6 +350,14 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		BB226B032E08C236005C1504 /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StewartLynch/EmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -353,6 +365,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BB1A46532DED68B900B7F845 /* XCRemoteSwiftPackageReference "SFSymbolPicker" */;
 			productName = SFSymbolPicker;
+		};
+		BB226B042E08C236005C1504 /* EmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB226B032E08C236005C1504 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
+			productName = EmojiPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

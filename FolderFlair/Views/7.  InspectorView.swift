@@ -14,6 +14,7 @@
 //----------------------------------------------
 // Copyright © 2025 CreaTECH Solutions. All rights reserved.
 
+import EmojiPicker
 import SwiftUI
 import SFSymbolPicker
 
@@ -101,6 +102,7 @@ struct InspectorView: View {
                                 .foregroundStyle(.primary)
                         }
                         .buttonStyle(.plain)
+                        
                     } label: {
                         VStack(alignment: .leading){
                             Text("Emoji")
@@ -109,12 +111,12 @@ struct InspectorView: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
-                    
                     .popover(isPresented: $changeEmoji) {
                         EmojiPickerView(selectedEmoji: $appState.selectedEmoji)
                         .frame(width: 400, height: 400)
                         .presentationCompactAdaptation(.popover)
                     }
+                    
                 }
             }
             if appState.iconType == .image || appState.iconType == .emoji || (appState.iconType == .symbol && appState.showIcon) {

@@ -1,6 +1,15 @@
 {
-  "originHash" : "a4011af53fc6ebfa0ee6ae73a9a1fede46a67a7ba7fd8942767be0752aae3e32",
+  "originHash" : "31263117ec2652e82c2e4a0c1d3d3876243e7c92892a0ff40956ed1b9c62561f",
   "pins" : [
+    {
+      "identity" : "emojipicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/StewartLynch/EmojiPicker",
+      "state" : {
+        "revision" : "372f4d8429e1a9d61dc01b26d16cf4c812d8cf23",
+        "version" : "1.0.2"
+      }
+    },
     {
       "identity" : "sfsymbolpicker",
       "kind" : "remoteSourceControl",

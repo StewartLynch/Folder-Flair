@@ -14,9 +14,9 @@
 //----------------------------------------------
 // Copyright © 2025 CreaTECH Solutions. All rights reserved.
 
-import SwiftUI
 import AppKit
 import SFSymbolPicker
+import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
