@@ -21,22 +21,42 @@ import SwiftUI
 struct TintedFolderView: View {
     let folderTint: Color
     let tintFolder: Bool
+    let isNew: Bool
     var body: some View {
-        if let nsImage = NSImage(named: "DefaultIcon") {
+        if let nsImage = NSImage(named: isNew ? "DefaultIcon26" : "DefaultIcon") {
             if tintFolder {
                 if let tinted = nsImage.tintedWithShading(using: NSColor(folderTint)) {
                     Image(nsImage: tinted)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
+                        .overlay {
+                            if isNew {
+                                Image("paper")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 180)
+                                    .offset(y: -50)
+                            }
+                        }
                 } else {
                     Text("Could not tint folder")
+                        
                 }
             } else {
                 Image(nsImage: nsImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
+                    .overlay {
+                        if isNew {
+                            Image("paper")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 180)
+                                .offset(y: -50)
+                        }
+                    }
             }
         }
         else {
@@ -46,5 +66,5 @@ struct TintedFolderView: View {
 }
 
 #Preview {
-    TintedFolderView(folderTint: .green, tintFolder: true)
+    TintedFolderView(folderTint: .green, tintFolder: true, isNew: true)
 }

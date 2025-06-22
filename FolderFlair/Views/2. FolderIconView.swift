@@ -22,7 +22,7 @@ struct FolderIconView: View {
     @Bindable var appState: AppState
     var body: some View {
         ZStack {
-            TintedFolderView(folderTint: appState.folderTint, tintFolder: appState.tintFolder)
+            TintedFolderView(folderTint: appState.folderTint, tintFolder: appState.tintFolder, isNew: appState.isNew)
             switch appState.iconType {
             case .symbol:
                 if appState.showIcon {
@@ -53,7 +53,7 @@ struct FolderIconView: View {
 
         }
         .mask(
-            Image(.defaultIcon)
+            Image(appState.isNew ? .defaultIcon26 : .defaultIcon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         )

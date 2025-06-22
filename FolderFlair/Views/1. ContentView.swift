@@ -167,6 +167,10 @@ struct ContentView: View {
             }
         }
         .onAppear {
+                if #available(macOS 19, *) {
+                    appState.isNew = true
+                }
+            print(appState.isNew)
             updatePreview()
         }
     }

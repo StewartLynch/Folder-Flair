@@ -31,8 +31,8 @@ class AppState {
     var hasShadow: Bool = true
     var showIcon: Bool = true
     var tintFolder: Bool = true
+    var isNew = false
 
-    // NEW
     var iconType: IconType = .symbol
     var iconImage: NSImage? = nil
 
