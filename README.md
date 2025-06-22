@@ -9,11 +9,12 @@ I am not looking for feedback or comments on the coding style.  If you want, you
 > ⚠️ Note: macOS 26 introduces native folder customization that will overlap with some of Folder Flair’s features. However, this app still offers options that macOS does not, such as support for custom images, scaling, and rotation.
 
 > Keep in mind that if a Folder Flair icon is applied, macOS 26 disables the folder’s opening animation when dragging in content. Tagging support remains unchanged.
+> If you build the app with Xcode 26, the application will recognize the version of macOS and use the correct base folder icon.
 
 If you prefer not to build the app yourself, you can download the installer below.
 
 ## 🚀 Download Folder Flair Installer
-[![Download Folder Flair v1.0.2](https://img.shields.io/badge/Download%20-v1.0.2-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.2/Folder.Flair.Install.dmg) 
+[![Download Folder Flair v1.0.4](https://img.shields.io/badge/Download%20-v1.0.4-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.4/Folder.Flair.Install.dmg) 
 
 ## Features
 
