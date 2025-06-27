@@ -38,7 +38,7 @@ class AppState {
 
     var refreshToken: String {
         let imageIdentifier = iconImage.map { "\($0.hash)" } ?? "nil"
-        return "\(symbolName)-\(folderTint.description)-\(symbolColor.description)-\(symbolOffset.width)-\(symbolOffset.height)-\(hasShadow)-\(showIcon)-\(tintFolder)-\(iconType)-\(imageIdentifier)"
+        return "\(symbolName)-\(selectedEmoji)-\(folderTint.description)-\(symbolColor.description)-\(symbolOffset.width)-\(symbolOffset.height)-\(hasShadow)-\(showIcon)-\(tintFolder)-\(iconType)-\(imageIdentifier)"
     }
     
     func reset() {
