@@ -15,7 +15,8 @@ I am not looking for feedback or comments on the coding style.  If you want, you
 If you prefer not to build the app yourself, you can download the installer below.
 
 ## 🚀 Download Folder Flair Installer
-[![Download Folder Flair v1.0.5](https://img.shields.io/badge/Download%20-v1.0.5-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.5/Folder.Flair.Install.dmg) 
+[![Download Folder Flair v1.0.6](https://img.shields.io/badge/Download%20-v1.0.6-blue?logo=apple&logoColor=white)](https://github.com/StewartLynch/Folder-Flair/releases/download/v1.0.6/Folder.Flair.Install.dmg) 
+> v1.0.6 fixes issue where emoji was not being updated unless resized, rotated or moved.
 
 ## Features
 
